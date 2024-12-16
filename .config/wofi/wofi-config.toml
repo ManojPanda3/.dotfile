@@ -1,0 +1,24 @@
+# ~/.config/wofi/wofi-config.toml
+
+# Path to the wofi binary
+wofi_path = "/usr/bin/wofi"
+
+# Extra arguments for wofi
+extra_args = "--allow-markup --columns=1 --hide-scroll"
+
+# Define custom buttons
+[menu]
+  [menu.wifi]
+    title = "Wi-Fi"
+    cmd = "nmcli radio wifi on"
+    icon = "wifi-symbolic"
+
+  [menu.bluetooth]
+    title = "Bluetooth"
+    cmd = "nmcli radio bluetooth on"
+    icon = "bluetooth-symbolic"
+
+  [menu.airplane_mode]
+    title = "Airplane Mode"
+    cmd = "nmcli radio all off"
+    icon = "airplane-symbolic"

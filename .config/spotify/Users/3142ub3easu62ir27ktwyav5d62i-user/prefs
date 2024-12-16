@@ -1,0 +1,4 @@
+audio.allow_downgrade=false
+audio.sync_bitrate_enumeration=1
+audio.play_bitrate_non_metered_migrated=true
+connect.dial_devices="[]"

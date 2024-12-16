@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    font-family: 'Bitstream Vera Sans';
+    font-size: 12;
+}
+
+window#waybar {
+    color: #beb7cc;
+    background:rgba(10,10,10,0.4);
+    border-radius:2rem;
+}
+
+label:disabled,
+button:disabled {
+    color: inherit;
+}
+
+.modules-left:first-child {
+    margin-left: 45px;
+}
+
+.modules-right:last-child {
+    margin-right: 45px;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: #beb7cc;
+    transition:all 250ms ease-in-out 25ms;
+    border:3px solid transparent;
+    border-radius:1.5rem/1.5rem;
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+    background: #b0a3cc;
+    color: #242226;
+    border: 1px solid #b0a3cc;
+}
+
+/* #workspaces button.focused {  */
+/* changed for hyprland */
+#workspaces button.active {
+    background: #b0a3cc;
+    color: #242226;
+    border:3px solid transparent;
+    background: linear-gradient(#b0a3cc,#b0a3cc) padding-box,linear-gradient(0deg, rgba(190,183,204,1) 0%, rgba(66,0,198,1) 100%) border-box;
+    animation: animated-gredient 1.45s linear infinite;
+}
+@keyframes animated-gredient{
+  from{
+
+    background: linear-gradient(#b0a3cc,#b0a3cc) padding-box,linear-gradient(0deg, rgba(190,183,204,1) 0%, rgba(66,0,198,1) 100%) border-box;
+  }
+  to{
+    background: linear-gradient(#b0a3cc,#b0a3cc) padding-box,linear-gradient(360deg, rgba(190,183,204,1) 0%, rgba(66,0,198,1) 100%) border-box;
+  }
+}
+
+#workspaces button.urgent {
+    background-color: #4a3d66;
+    color: #d8d1e5;
+}
+
+#custom-gpu,
+#custom-clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#custom-media,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#pulseaudio,
+#mpd,
+#tray,
+#workspaces button {
+    border: 1px solid transparent;
+    border-radius: 15;
+    padding: 1px 10px 1px 10px;
+    margin: 1px 10px 1px 0px;
+    box-shadow: 0 0;
+  color:white;
+ }
+
+#tray {
+    margin-right: 0;
+}
+
+#custom-clock {
+    margin-left: 70px;
+    margin-right: 70px;
+    color:white;
+    border-radius:10rem;
+}
+
+
+#temperature.critical {
+    background-color: #4a3d66;
+    color: #d8d1e5;
+}
+#custom-power{
+  margin-right:0.3rem;
+}
+#custom-power:hover{
+  color:red;
+  transition:color 500ms ease-in-out 50ms;
+}
+#custom-gpu,
+#cpu{
+  font-size:0.8rem;
+}
+#pulseaudio{
+  margin:0px;
+}
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background-color: transparent;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border-radius: 5px;
+    background-image: linear-gradient(90deg,  rgba(1,0,50,1) 0%, rgba(52,240,255,1) 100%) ;
+}
+
+#battery {
+    background-color: transparent;
+    color: #beb7cc;
+}
+#battery.critical{
+  color:red;
+}
+#battery.warning{
+  color:orange;
+}
+#battery.charging, #battery.plugged {
+    color: green;
+}

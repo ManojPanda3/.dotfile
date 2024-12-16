@@ -1,0 +1,32 @@
+{
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "<span color='#fff'></span>",
+      "default": "<span color='#fff'></span>"
+    },
+    "all-outputs": true,
+    "activate-only": false,
+    "tooltip": false,
+    "persistent_workspaces": {
+      "*": 5
+    }
+  },
+  "clock": {
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "custom/exit": {
+    "format": "",
+    "on-click": "wlogout",
+    "tooltip": false
+  },
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  }
+}

@@ -1,0 +1,5 @@
+#!/bin/bash
+selection=$(hyprctl hyprpaper listloaded | wofi --show dmenu --width=50%)
+echo "$selection"
+ls "$selection"
+hyprctl hyprpaper wallpaper "eDP-1,$selection"

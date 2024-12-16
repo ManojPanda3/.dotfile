@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Define menu options with icons for WiFi state
+wifi_state=$(nmcli radio wifi)
+if [[ $wifi_state == "enabled" ]]; then
+  wifi_icon="    Wifi(turn it Off)"
+else
+  wifi_icon="󱚼    Wifi(turn it On)"
+fi
+
+bluetooth_state=$(bluetoothctl show | grep "Powered" | awk '{print $2}')
+echo "$bluetooth_state"
+if [[ $bluetooth_state == "yes" ]]; then
+  bluetooth_icon="󰂯    Bluetooth(turn it Off)"
+elif [[ $bluetooth_state == "no" ]]; then
+  bluetooth_icon="󰂲     Bluetooth(turn it On)"
+else
+  bluetooth_icon="❌ Bluetooth: Unavailable"
+fi
+
+options="$wifi_icon\n$bluetooth_icon\nVolume\nPower Options\nExit"
+# Show menu
+selected=$(echo -e "$options" | wofi --dmenu --prompt "Control Center" --width 300 --height 200)
+case $selected in
+"$wifi_icon")
+  if [[ $wifi_state == "enabled" ]]; then
+    nmcli radio wifi off
+    notify-send "WiFi Disabled"
+  else
+    nmcli radio wifi on
+    notify-send "WiFi Enabled"
+  fi
+  ;;
+"$bluetooth_icon")
+  if [[ $bluetooth_state == "yes" ]]; then
+    notify-send
+    bluetoothctl power off
+    notify-send "Bluetooth Disabled"
+  else
+    bluetoothctl power on
+    notify-send "Bluetooth Enabled"
+  fi
+  ;;
+"Volume")
+  pavucontrol
+  ;;
+"Power Options")
+  wlogout
+  ;;
+*)
+  echo "Bye"
+  ;;
+esac
